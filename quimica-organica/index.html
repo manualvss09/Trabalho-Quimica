@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Apresentação interativa de Química Orgânica em formato de missão científica."
+    />
+    <title>MISSÃO: Química Orgânica</title>
+    <link rel="stylesheet" href="style.css?v=20261007" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-box">
+          <p>CIEP BRIZOLÃO 137</p>
+          <p>CECÍLIA MEIRELES</p>
+          <p class="muted">NOA DE QUÍMICA</p>
+          <p class="muted">3ª SÉRIE • 2026</p>
+        </div>
+
+        <nav class="phase-nav" aria-label="Menu de fases">
+          <button class="phase-btn active" data-target="0" type="button"> <span>00</span> <strong>Capa</strong> </button>
+          <button class="phase-btn" data-target="1" type="button"> <span>01</span> <strong>Carbono</strong> </button>
+          <button class="phase-btn" data-target="2" type="button"> <span>02</span> <strong>História</strong> </button>
+          <button class="phase-btn" data-target="3" type="button"> <span>03</span> <strong>Qualidade</strong> </button>
+          <button class="phase-btn" data-target="4" type="button"> <span>04</span> <strong>Ambiente</strong> </button>
+          <button class="phase-btn" data-target="5" type="button"> <span>05</span> <strong>Tecnologia</strong> </button>
+          <button class="phase-btn" data-target="6" type="button"> <span>06</span> <strong>Conclusão</strong> </button>
+          <button class="phase-btn" data-target="7" type="button"> <span>07</span> <strong>Quiz</strong> </button>
+          <button class="phase-btn" data-target="8" type="button"> <span>08</span> <strong>Final</strong> </button>
+          <button class="phase-btn reference-btn" type="button" data-reference-modal>Referências</button>
+        </nav>
+      </aside>
+
+      <main class="panel">
+        <header class="topbar">
+          <span class="mission-tag">MISSÃO: QUÍMICA ORGÂNICA</span>
+
+          <div class="progress-box">
+            <div class="progress-head">
+              <span>Mission progress</span>
+              <strong><span id="currentIndicator">00</span> / <span id="totalIndicator">08</span></strong>
+            </div>
+            <div class="progress-track">
+              <span id="progressFill" class="progress-fill"></span>
+            </div>
+          </div>
+        </header>
+
+        <div class="status-strip">
+          <span>Fase atual</span>
+          <strong id="phaseNameDisplay">MISSÃO 00</strong>
+        </div>
+
+        <div class="slides-wrap">
+          <section class="slide active" data-slide="0">
+            <div class="cover-grid">
+              <div class="cover-copy">
+                <span class="chip">MISSÃO 01</span>
+                <span class="chip muted">SISTEMA ATIVO</span>
+                <h1>QUÍMICA<br />ORGÂNICA</h1>
+                <p class="subtitle">Do carbono à construção do futuro</p>
+                <p class="lead">
+                  Uma jornada científica pelo carbono, pela vida, pela tecnologia e pelo futuro.
+                </p>
+                <button class="cta" data-target="1" type="button">[ INICIAR MISSÃO ]</button>
+              </div>
+
+              <div class="molecule-scene" aria-hidden="true">
+                <div class="molecule-shell">
+                  <span class="node-main">C</span>
+                  <span class="bond bond-1"></span>
+                  <span class="bond bond-2"></span>
+                  <span class="bond bond-3"></span>
+                  <span class="bond bond-4"></span>
+                  <span class="atom atom-a">N</span>
+                  <span class="atom atom-b">O</span>
+                  <span class="atom atom-c">H</span>
+                  <span class="atom atom-d">C</span>
+                </div>
+                <span class="particle p1"></span>
+                <span class="particle p2"></span>
+                <span class="particle p3"></span>
+                <span class="particle p4"></span>
+                <span class="particle p5"></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="slide" data-slide="1">
+            <div class="section-head">
+              <span>01 / 08</span>
+              <small>FASE 01</small>
+            </div>
+            <h2>O CARBONO</h2>
+            <p class="eyebrow">POR QUE O CARBONO É TÃO IMPORTANTE?</p>
+
+            <div class="carbon-map">
+              <div class="carbon-core"><span>C</span><small>CARBONO</small></div>
+              <div class="chain step-a"><span class="line"></span><strong>MOLÉCULAS</strong></div>
+              <div class="chain step-b"><span class="line"></span><strong>MATERIAIS</strong></div>
+              <div class="chain step-c"><span class="line"></span><strong>MEDICAMENTOS</strong></div>
+              <div class="chain step-d"><span class="line"></span><strong>ALIMENTOS</strong></div>
+              <div class="chain step-e"><span class="line"></span><strong>TECNOLOGIA</strong></div>
+            </div>
+
+            <div class="feature-grid">
+              <button class="mini-card active" type="button" data-panel="saude"> <span>SAÚDE</span> <strong>MEDICAMENTOS</strong> </button>
+              <button class="mini-card" type="button" data-panel="energia"> <span>ENERGIA</span> <strong>COMBUSTÍVEIS</strong> </button>
+              <button class="mini-card" type="button" data-panel="alimento"> <span>ALIMENTAÇÃO</span> <strong>COMPOSTOS ORGÂNICOS</strong> </button>
+              <button class="mini-card" type="button" data-panel="tecnologia"> <span>TECNOLOGIA</span> <strong>MATERIAIS</strong> </button>
+            </div>
+
+            <div class="info-panel active" data-group="saude">
+              <strong>SAÚDE</strong>
+              <p>Compostos orgânicos participam da produção de medicamentos e tratamentos.</p>
+            </div>
+            <div class="info-panel" data-group="energia">
+              <strong>ENERGIA</strong>
+              <p>Combustíveis e materiais energéticos têm origem em estruturas orgânicas e químicas.</p>
+            </div>
+            <div class="info-panel" data-group="alimento">
+              <strong>ALIMENTAÇÃO</strong>
+              <p>Carboidratos, proteínas e lipídios são compostos orgânicos essenciais para a vida.</p>
+            </div>
+            <div class="info-panel" data-group="tecnologia">
+              <strong>TECNOLOGIA</strong>
+              <p>Materiais avançados e tecnologias dependem de moléculas, polímeros e estruturas orgânicas.</p>
+            </div>
+          </section>
+
+          <section class="slide" data-slide="2">
+            <div class="section-head">
+              <span>02 / 08</span>
+              <small>FASE 02</small>
+            </div>
+            <h2>DE ONDE VEIO A QUÍMICA ORGÂNICA?</h2>
+
+            <div class="timeline">
+              <div class="time-box">
+                <span>VITALISMO</span>
+                <small>Ideia de que compostos orgânicos só poderiam ser produzidos por seres vivos.</small>
+              </div>
+              <div class="arrow">↓</div>
+              <div class="time-box"><span>1828</span><small>Friedrich Wöhler</small></div>
+              <div class="arrow">↓</div>
+              <div class="time-box highlight"><span>SÍNTESE DA UREIA</span><small>Produção em laboratório a partir de um composto considerado inorgânico.</small></div>
+              <div class="arrow">↓</div>
+              <div class="time-box"><span>MUDANÇA DE CONCEITO</span><small>A experiência enfraqueceu o vitalismo e impulsionou a Química Orgânica moderna.</small></div>
+            </div>
+            
+            <div class="timeline-visual">
+                <div class="blue-badge">REGISTRO DESBLOQUEADO</div>
+                <div class="pair-boxes">
+                  <div class="pair-box">
+                    <strong>COMPOSTO INORGÂNICO</strong>
+                    <div class="mini-molecule compound-a"></div>
+                  </div>
+                  <div class="pair-symbol">→</div>
+                  <div class="pair-box active">
+                    <strong>UREIA</strong>
+                    <div class="mini-molecule compound-b"></div>
+                  </div>
+                </div>
+            </div>
+
+          </section>
+
+          <section class="slide" data-slide="3">
+            <div class="section-head"><span>03 / 08</span><small>FASE 03</small></div>
+            <h2>QUÍMICA ORGÂNICA E QUALIDADE DE VIDA</h2>
+            <p class="eyebrow center">SELECIONE UMA ÁREA</p>
+
+            <div class="area-grid">
+              <button class="area-btn active" type="button" data-panel="saude-area"> <span>01</span> <strong>SAÚDE</strong> </button>
+              <button class="area-btn" type="button" data-panel="alimentacao-area"> <span>02</span> <strong>ALIMENTAÇÃO</strong> </button>
+              <button class="area-btn" type="button" data-panel="agricultura-area"> <span>03</span> <strong>AGRICULTURA</strong> </button>
+              <button class="area-btn" type="button" data-panel="cotidiano-area"> <span>04</span> <strong>COTIDIANO</strong> </button>
+            </div>
+
+            <div class="detail-panel active" data-group="saude-area">
+              <h3>SAÚDE</h3>
+              <ul>
+                <li>Medicamentos</li>
+                <li>Anestésicos</li>
+                <li>Importância clínica em diagnóstico e tratamento</li>
+              </ul>
+            </div>
+            <div class="detail-panel" data-group="alimentacao-area">
+              <h3>ALIMENTAÇÃO</h3>
+              <ul>
+                <li>Carboidratos</li>
+                <li>Lipídios</li>
+                <li>Proteínas e compostos vitais para a nutrição</li>
+              </ul>
+            </div>
+            <div class="detail-panel" data-group="agricultura-area">
+              <h3>AGRICULTURA</h3>
+              <ul>
+                <li>Defensivos agrícolas</li>
+                <li>Fertilizantes</li>
+                <li>Produção de alimentos e produtividade do campo</li>
+              </ul>
+            </div>
+            <div class="detail-panel" data-group="cotidiano-area">
+              <h3>COTIDIANO</h3>
+              <ul>
+                <li>Cosméticos</li>
+                <li>Plásticos</li>
+                <li>Produtos de limpeza e materiais de uso comum</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="slide" data-slide="4">
+            <div class="section-head"><span>04 / 08</span><small>FASE 04</small></div>
+            <h2>PROTEÇÃO AMBIENTAL</h2>
+            <p class="eyebrow">COMO A QUÍMICA PODE AJUDAR A REDUZIR NOSSO IMPACTO?</p>
+
+            <div class="env-grid">
+              <button class="env-card active" type="button" data-panel="biofuel"><span>PROBLEMA</span><strong>BIOCOMBUSTÍVEIS</strong><small>Alternativas com menor dependência de combustíveis fósseis.</small></button>
+              <button class="env-card" type="button" data-panel="bioplastic"><span>PROBLEMA</span><strong>BIOPLÁSTICOS</strong><small>Materiais produzidos a partir de fontes renováveis.</small></button>
+              <button class="env-card" type="button" data-panel="polymer"><span>PROBLEMA</span><strong>POLÍMEROS BIODEGRADÁVEIS</strong><small>Menor acúmulo de resíduos persistentes.</small></button>
+              <button class="env-card" type="button" data-panel="recycle"><span>PROBLEMA</span><strong>RECICLAGEM</strong><small>Reaproveitamento de materiais e redução do descarte.</small></button>
+              <button class="env-card" type="button" data-panel="green"><span>PROBLEMA</span><strong>QUÍMICA VERDE</strong><small>Processos mais seguros e com menor impacto ambiental.</small></button>
+            </div>
+
+            <div class="env-panel active" data-group="biofuel">
+              <div><strong>PROBLEMA</strong><p>Dependência de materiais e processos com maior impacto ambiental.</p></div>
+              <div><strong>QUÍMICA</strong><p>Desenvolvimento de alternativas renováveis e mais seguras.</p></div>
+              <div><strong>RESULTADO</strong><p>Redução de resíduos, toxicidade e impacto ambiental.</p></div>
+            </div>
+            <div class="env-panel" data-group="bioplastic">
+              <div><strong>PROBLEMA</strong><p>Acúmulo de materiais sintéticos de difícil degradação.</p></div>
+              <div><strong>QUÍMICA</strong><p>Criação de materiais produzidos a partir de fontes renováveis.</p></div>
+              <div><strong>RESULTADO</strong><p>Possibilidade de reduzir resíduos e melhorar o uso dos recursos.</p></div>
+            </div>
+            <div class="env-panel" data-group="polymer">
+              <div><strong>PROBLEMA</strong><p>Resíduos plásticos persistentes no ambiente.</p></div>
+              <div><strong>QUÍMICA</strong><p>Estudo de polímeros com estruturas mais degradáveis.</p></div>
+              <div><strong>RESULTADO</strong><p>Menor permanência de resíduos em ciclos naturais.</p></div>
+            </div>
+            <div class="env-panel" data-group="recycle">
+              <div><strong>PROBLEMA</strong><p>Desperdício de materiais valiosos e aumento de resíduos.</p></div>
+              <div><strong>QUÍMICA</strong><p>Processos de separação, reaproveitamento e transformação.</p></div>
+              <div><strong>RESULTADO</strong><p>Maior eficiência no uso dos recursos e menos descarte.</p></div>
+            </div>
+            <div class="env-panel" data-group="green">
+              <div><strong>PROBLEMA</strong><p>Produção industrial com elevado consumo de energia e geração de resíduos.</p></div>
+              <div><strong>QUÍMICA</strong><p>Processos mais seguros, eficientes e menos agressivos ao ambiente.</p></div>
+              <div><strong>RESULTADO</strong><p>Soluções mais sustentáveis para a indústria e a sociedade.</p></div>
+            </div>
+          </section>
+
+          <section class="slide" data-slide="5">
+            <div class="section-head"><span>05 / 08</span><small>FASE 05</small></div>
+            <h2>O FUTURO É ORGÂNICO?</h2>
+
+            <div class="future-layout">
+              <div class="future-menu">
+                <button class="future-btn active" type="button" data-tech="medicina">NOVOS MEDICAMENTOS</button>
+                <button class="future-btn" type="button" data-tech="polimeros">POLÍMEROS DE ALTA TECNOLOGIA</button>
+                <button class="future-btn" type="button" data-tech="biomateriais">BIOMATERIAIS</button>
+                <button class="future-btn" type="button" data-tech="nano">NANOMATERIAIS</button>
+              </div>
+
+              <div class="future-panel active" data-tech-panel="medicina">
+                <h3>QUAL É O PROBLEMA?</h3><p>Doenças que exigem tratamentos mais específicos e eficientes.</p>
+                <h3>QUAL É O PAPEL DA QUÍMICA ORGÂNICA?</h3><p>Desenvolver moléculas e compostos com ação terapêutica.</p>
+                <h3>QUAIS SÃO OS BENEFÍCIOS?</h3><p>Tratamentos mais eficazes e personalizados.</p>
+                <h3>QUAL PODE SER O IMPACTO FUTURO?</h3><p>Avanços em medicina preventiva, diagnóstica e terapêutica.</p>
+              </div>
+              <div class="future-panel" data-tech-panel="polimeros">
+                <h3>QUAL É O PROBLEMA?</h3><p>Necessidade de materiais mais leves, resistentes e adaptáveis.</p>
+                <h3>QUAL É O PAPEL DA QUÍMICA ORGÂNICA?</h3><p>Projetar estruturas macromoleculares com propriedades específicas.</p>
+                <h3>QUAIS SÃO OS BENEFÍCIOS?</h3><p>Aplicações em eletrônicos, embalagens e materiais avançados.</p>
+                <h3>QUAL PODE SER O IMPACTO FUTURO?</h3><p>Materiais mais versáteis para diferentes setores.</p>
+              </div>
+              <div class="future-panel" data-tech-panel="biomateriais">
+                <h3>QUAL É O PROBLEMA?</h3><p>Necessidade de materiais compatíveis com tecidos e processos biológicos.</p>
+                <h3>QUAL É O PAPEL DA QUÍMICA ORGÂNICA?</h3><p>Criação de materiais com propriedades biocompatíveis e funcionais.</p>
+                <h3>QUAIS SÃO OS BENEFÍCIOS?</h3><p>Uso em próteses, engenharia de tecidos e soluções médicas.</p>
+                <h3>QUAL PODE SER O IMPACTO FUTURO?</h3><p>Interação mais segura entre materiais e organismos vivos.</p>
+              </div>
+              <div class="future-panel" data-tech-panel="nano">
+                <h3>QUAL É O PROBLEMA?</h3><p>Demandas por materiais de alto desempenho em escala reduzida.</p>
+                <h3>QUAL É O PAPEL DA QUÍMICA ORGÂNICA?</h3><p>Manipular estruturas moleculares para propriedades específicas em nanoescala.</p>
+                <h3>QUAIS SÃO OS BENEFÍCIOS?</h3><p>Maior eficiência em sensores, energia e saúde.</p>
+                <h3>QUAL PODE SER O IMPACTO FUTURO?</h3><p>Novas aplicações em dispositivos e tecnologias de alto desempenho.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="slide" data-slide="6">
+            <div class="section-head"><span>06 / 08</span><small>FASE 06</small></div>
+            <h2>MISSÃO: REFLETIR</h2>
+
+            <div class="reflection-grid">
+              <div class="reflection-card"><span>QUALIDADE DE VIDA</span></div>
+              <div class="reflection-card"><span>DESENVOLVIMENTO</span></div>
+              <div class="reflection-card"><span>SUSTENTABILIDADE</span></div>
+            </div>
+
+            <p class="quote">“Conhecer o carbono é entender uma parte fundamental das transformações que moldam nossa vida.”</p>
+            <p class="brief">
+              O conhecimento da Química Orgânica contribui para o desenvolvimento de medicamentos, materiais, alimentos, tecnologias e soluções ambientais, mas também exige responsabilidade diante dos recursos naturais, dos resíduos e dos impactos ambientais.
+            </p>
+            <p class="mission-end">MISSÃO QUASE CONCLUÍDA</p>
+          </section>
+
+          <section class="slide" data-slide="7">
+            <div class="section-head"><span>07 / 08</span><small>FASE 07</small></div>
+            <h2>DESAFIO FINAL</h2>
+            <p class="eyebrow">TESTE SEU CONHECIMENTO</p>
+            <div id="quizApp" class="quiz-app"></div>
+          </section>
+
+          <section class="slide" data-slide="8">
+            <div class="section-head"><span>08 / 08</span><small>MISSÃO CONCLUÍDA</small></div>
+            <div class="final-layout">
+              <div class="final-text">
+                <p>EU</p>
+                <p>TENTEI.</p>
+              </div>
+              <div class="final-image-frame">
+                <img src="./assets/images/chico.jpg" alt="Chico Moedas em pose de meme" />
+              </div>
+            </div>
+            <div class="final-footer">FIM.</div>
+          </section>
+        </div>
+
+        <div class="controls">
+          <button id="prevBtn" class="nav-btn" type="button">← ANTERIOR</button>
+          <button id="nextBtn" class="nav-btn primary" type="button">PRÓXIMO →</button>
+        </div>
+      </main>
+    </div>
+
+    <div id="referenceModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="referenceTitle">
+        <button type="button" class="close-modal" aria-label="Fechar referências">×</button>
+        <h3 id="referenceTitle">REFERÊNCIAS</h3>
+        <ul>
+          <li>Livro didático de Química Orgânica</li>
+          <li>Aula prática sobre compostos orgânicos</li>
+          <li>Materiais de apoio escolar</li>
+          <li>Conceitos de sustentabilidade e química verde</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite">MISSÃO INICIADA</div>
+
+    <script src="script.js?v=20261007"></script>
+  </body>
+</html>
