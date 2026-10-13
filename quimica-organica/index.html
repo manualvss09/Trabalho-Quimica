@@ -8,7 +8,7 @@
       content="Apresentação interativa de Química Orgânica em formato de missão científica."
     />
     <title>MISSÃO: Química Orgânica</title>
-    <link rel="stylesheet" href="style.css?v=20261007" />
+    <link rel="stylesheet" href="style.css?v=20261013" />
   </head>
   <body>
     <div class="app-shell">
@@ -40,13 +40,14 @@
 
           <div class="progress-box">
             <div class="progress-head">
-              <span>Mission progress</span>
+              <span>Progresso da missão</span>
               <strong><span id="currentIndicator">00</span> / <span id="totalIndicator">08</span></strong>
             </div>
             <div class="progress-track">
               <span id="progressFill" class="progress-fill"></span>
             </div>
           </div>
+          <span id="gamepadStatus" class="gamepad-status" role="status" aria-live="polite">TECLADO ATIVO</span>
         </header>
 
         <div class="status-strip">
@@ -65,7 +66,7 @@
                 <p class="lead">
                   Uma jornada científica pelo carbono, pela vida, pela tecnologia e pelo futuro.
                 </p>
-                <button class="cta" data-target="1" type="button">[ INICIAR MISSÃO ]</button>
+                <button class="cta" data-target="1" type="button">INICIAR MISSÃO</button>
               </div>
 
               <div class="molecule-scene" aria-hidden="true">
@@ -314,7 +315,7 @@
             <div class="section-head"><span>07 / 08</span><small>FASE 07</small></div>
             <h2>DESAFIO FINAL</h2>
             <p class="eyebrow">TESTE SEU CONHECIMENTO</p>
-            <div id="quizApp" class="quiz-app"></div>
+            <div id="quizApp" class="quiz-app" aria-live="polite"></div>
           </section>
 
           <section class="slide" data-slide="8">
@@ -354,6 +355,6 @@
 
     <div id="toast" class="toast" aria-live="polite">MISSÃO INICIADA</div>
 
-    <script src="script.js?v=20261007"></script>
+    <script src="script.js?v=20261013"></script>
   </body>
 </html>
