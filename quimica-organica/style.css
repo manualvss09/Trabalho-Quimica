@@ -1,18 +1,44 @@
 ﻿:root {
-  --bg-900: #050914;
-  --bg-800: #0a1223;
-  --bg-700: #101d35;
-  --panel: rgba(9, 17, 34, 0.94);
-  --panel-strong: rgba(13, 24, 46, 0.98);
-  --line: rgba(52, 194, 255, 0.32);
-  --line-strong: rgba(73, 213, 255, 0.9);
-  --text: #f2f7ff;
-  --muted: #b3c1d8;
-  --green: #a7f542;
-  --green-soft: #a7f542;
-  --teal: #278bff;
-  --shadow: rgba(38, 173, 255, 0.26);
-  --danger: #ff758a;
+--bg-900: #080a12;
+--bg-800: #101322;
+--bg-700: #191a30;
+--panel: rgba(14, 17, 31, 0.9);
+--panel-strong: rgba(19, 22, 39, 0.97);
+--line: rgba(116, 143, 207, 0.32);
+--line-strong: rgba(164, 145, 255, 0.82);
+--text: #edfdf8;
+--muted: #b3bfd5;
+--green: #38d6a0;
+--green-soft: #b8c9ff;
+--teal: #9178f4;
+--shadow: rgba(112, 125, 255, 0.28);
+--danger: #ff6b7a;--bg-900: #080a12;
+--bg-800: #101322;
+--bg-700: #191a30;
+--panel: rgba(14, 17, 31, 0.9);
+--panel-strong: rgba(19, 22, 39, 0.97);
+--line: rgba(116, 143, 207, 0.32);
+--line-strong: rgba(164, 145, 255, 0.82);
+--text: #edfdf8;
+--muted: #b3bfd5;
+--green: #38d6a0;
+--green-soft: #b8c9ff;
+--teal: #9178f4;
+--shadow: rgba(112, 125, 255, 0.28);
+--danger: #ff6b7a;--bg-900: #080a12;
+--bg-800: #101322;
+--bg-700: #191a30;
+--panel: rgba(14, 17, 31, 0.9);
+--panel-strong: rgba(19, 22, 39, 0.97);
+--line: rgba(116, 143, 207, 0.32);
+--line-strong: rgba(164, 145, 255, 0.82);
+--text: #edfdf8;
+--muted: #b3bfd5;
+--green: #38d6a0;
+--green-soft: #b8c9ff;
+--teal: #9178f4;
+--shadow: rgba(112, 125, 255, 0.28);
+--danger: #ff6b7a;
   --warning: #ffd166;
 }
 
@@ -29,8 +55,8 @@ body {
   min-height: 100vh;
   font-family: 'Segoe UI', Arial, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(64, 231, 176, 0.15), transparent 20%),
-    radial-gradient(circle at top right, rgba(36, 184, 163, 0.14), transparent 25%),
+    radial-gradient(circle at top left, rgba(62, 114, 211, 0.2), transparent 23%),
+    radial-gradient(circle at top right, rgba(112, 76, 189, 0.18), transparent 27%),
     var(--bg-900);
   color: var(--text);
 }
@@ -74,7 +100,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(64, 231, 176, 0.06), transparent 35%);
+  background: linear-gradient(135deg, rgba(100, 126, 232, 0.06), transparent 35%);
   pointer-events: none;
 }
 
@@ -141,7 +167,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 .phase-btn:hover, .phase-btn:focus-visible, .phase-btn.active {
   border-color: var(--line);
   transform: translateX(2px);
-  box-shadow: 0 0 18px rgba(64, 231, 176, 0.12);
+  box-shadow: 0 0 18px rgba(100, 126, 232, 0.12);
 }
 
 .reference-btn {
@@ -170,7 +196,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   padding: 8px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(64, 231, 176, 0.06);
+  background: rgba(100, 126, 232, 0.06);
   color: var(--green-soft);
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -214,7 +240,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--green), var(--teal));
-  box-shadow: 0 0 18px rgba(64, 231, 176, 0.35);
+  box-shadow: 0 0 18px rgba(100, 126, 232, 0.35);
   transition: width 0.28s ease;
 }
 
@@ -254,7 +280,9 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   transform: translateX(20px);
   padding: 18px 12px 36px;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  overflow: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(164, 145, 255, 0.5) transparent;
 }
 
 .slide.active {
@@ -293,6 +321,42 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   text-align: center;
 }
 
+.topic-visual {
+  position: relative;
+  height: 176px;
+  margin: 18px 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-800);
+}
+
+.topic-visual::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(8, 10, 18, 0.84));
+  pointer-events: none;
+}
+
+.topic-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.topic-visual figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 12px;
+  left: 16px;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
+
 .cover-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -313,7 +377,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   justify-content: center;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(64, 231, 176, 0.06);
+  background: rgba(100, 126, 232, 0.06);
   border: 1px solid var(--line);
   color: var(--green-soft);
   font-size: 0.65rem;
@@ -351,7 +415,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 .cta, .nav-btn, .quiz-next, .try-again {
   border: 1px solid var(--line-strong);
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(64, 231, 176, 0.15), rgba(36, 184, 163, 0.08));
+  background: linear-gradient(135deg, rgba(100, 126, 232, 0.15), rgba(112, 76, 189, 0.08));
   color: var(--text);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -366,7 +430,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 
 .cta:hover, .nav-btn:hover, .quiz-next:hover, .try-again:hover, .cta:focus-visible, .nav-btn:focus-visible, .quiz-next:focus-visible, .try-again:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 0 20px rgba(64, 231, 176, 0.12);
+  box-shadow: 0 0 20px rgba(100, 126, 232, 0.12);
 }
 
 .molecule-scene {
@@ -376,19 +440,37 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 28px;
-  background: radial-gradient(circle, rgba(64, 231, 176, 0.08), rgba(64, 231, 176, 0.02) 58%, transparent 72%);
+  background: radial-gradient(circle, rgba(100, 126, 232, 0.08), rgba(100, 126, 232, 0.02) 58%, transparent 72%);
   overflow: hidden;
+}
+
+.molecule-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  filter: saturate(0.7);
+}
+
+.molecule-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 10, 18, 0.08), rgba(8, 10, 18, 0.72));
 }
 
 .molecule-shell {
   position: relative;
+  z-index: 1;
   width: min(340px, 32vw);
   height: min(340px, 32vw);
   min-width: 260px;
   min-height: 260px;
   border-radius: 50%;
-  border: 1px solid rgba(121, 250, 208, 0.55);
-  background: radial-gradient(circle, rgba(64, 231, 176, 0.08), rgba(64, 231, 176, 0.02) 54%, transparent 72%);
+  border: 1px solid rgba(177, 156, 255, 0.55);
+  background: radial-gradient(circle, rgba(100, 126, 232, 0.08), rgba(100, 126, 232, 0.02) 54%, transparent 72%);
   animation: pulse 5s ease-in-out infinite alternate;
 }
 
@@ -409,7 +491,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   display: block;
   width: 120px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(121, 250, 208, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(177, 156, 255, 0.8), transparent);
 }
 
 .bond-1 { transform: rotate(48deg) translate(0, -122px); }
@@ -424,10 +506,10 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   display: grid;
   place-items: center;
   border-radius: 50%;
-  border: 1px solid rgba(121, 250, 208, 0.75);
+  border: 1px solid rgba(177, 156, 255, 0.75);
   background: rgba(8, 17, 18, 0.9);
   color: var(--green-soft);
-  box-shadow: 0 0 18px rgba(64, 231, 176, 0.14);
+  box-shadow: 0 0 18px rgba(100, 126, 232, 0.14);
 }
 
 .atom-a { right: -4px; top: 15%; }
@@ -437,11 +519,12 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 
 .particle {
   position: absolute;
+  z-index: 2;
   width: 8px;
   height: 8px;
   background: var(--green-soft);
   border-radius: 50%;
-  box-shadow: 0 0 16px rgba(64, 231, 176, 0.5);
+  box-shadow: 0 0 16px rgba(100, 126, 232, 0.5);
   animation: drift 4s ease-in-out infinite alternate;
 }
 
@@ -471,8 +554,8 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   place-items: center;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
-  background: rgba(64, 231, 176, 0.06);
-  box-shadow: inset 0 0 20px rgba(64, 231, 176, 0.15), 0 0 22px rgba(64, 231, 176, 0.1);
+  background: rgba(100, 126, 232, 0.06);
+  box-shadow: inset 0 0 20px rgba(100, 126, 232, 0.15), 0 0 22px rgba(100, 126, 232, 0.1);
 }
 
 .carbon-core span {
@@ -508,7 +591,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 .line {
   width: 2px;
   height: 42px;
-  background: linear-gradient(180deg, rgba(121, 250, 208, 0.85), transparent);
+  background: linear-gradient(180deg, rgba(177, 156, 255, 0.85), transparent);
 }
 
 .step-a { left: 48%; top: 8%; }
@@ -536,6 +619,14 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card-image {
+  width: 100%;
+  height: 82px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .mini-card span, .area-btn span, .env-card span {
   color: var(--green-soft);
   font-size: 0.66rem;
@@ -551,7 +642,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 
 .mini-card:hover, .mini-card.active, .area-btn:hover, .area-btn.active, .env-card:hover, .env-card.active, .future-btn:hover, .future-btn.active {
   border-color: var(--line-strong);
-  box-shadow: 0 0 18px rgba(64, 231, 176, 0.1);
+  box-shadow: 0 0 18px rgba(100, 126, 232, 0.1);
   transform: translateY(-2px);
 }
 
@@ -618,7 +709,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 
 .time-box.highlight {
   border-color: var(--line-strong);
-  box-shadow: 0 0 18px rgba(64, 231, 176, 0.12);
+  box-shadow: 0 0 18px rgba(100, 126, 232, 0.12);
 }
 
 .arrow {
@@ -632,13 +723,22 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   padding-bottom: 12px;
 }
 
+.unlocked-photo {
+  width: min(100%, 520px);
+  height: 180px;
+  margin: 16px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  object-fit: cover;
+}
+
 .blue-badge {
   display: inline-flex;
   margin-top: 4px;
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgba(64, 231, 176, 0.05);
+  background: rgba(100, 126, 232, 0.05);
   color: var(--green-soft);
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -689,14 +789,14 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   height: 120px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(64, 231, 176, 0.04);
+  background: rgba(100, 126, 232, 0.04);
 }
 
 .compound-a::before, .compound-b::before, .compound-b::after {
   content: "";
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(121, 250, 208, 0.55);
+  border: 1px solid rgba(177, 156, 255, 0.55);
 }
 
 .compound-a::before { inset: 22%; }
@@ -779,7 +879,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   min-height: 150px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(64, 231, 176, 0.04), rgba(22, 31, 35, 0.9));
+  background: linear-gradient(135deg, rgba(100, 126, 232, 0.04), rgba(22, 31, 35, 0.9));
   text-align: center;
   padding: 18px;
 }
@@ -858,13 +958,13 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 }
 
 .answer-option:hover, .answer-option:focus-visible {
-  border-color: rgba(121, 250, 208, 0.7);
+  border-color: rgba(177, 156, 255, 0.7);
   transform: translateY(-1px);
 }
 
 .answer-option.correct {
-  border-color: rgba(64, 231, 176, 0.85);
-  background: rgba(64, 231, 176, 0.12);
+  border-color: rgba(56, 214, 160, 0.85);
+  background: rgba(56, 214, 160, 0.12);
 }
 
 .answer-option.incorrect {
@@ -931,7 +1031,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 
 .final-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(260px, 1.2fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: 20px;
   min-height: 560px;
@@ -984,6 +1084,49 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   padding-top: 18px;
 }
 
+.control-hint {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px 18px;
+  flex-wrap: wrap;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+#gamepadStatus {
+  color: var(--green-soft);
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--line-strong);
+  outline-offset: 3px;
+}
+
+.mini-card, .area-btn, .env-card, .future-btn {
+  padding: 21px 19px;
+  background-color: rgba(27, 30, 53, 0.88);
+}
+
+.mini-card span, .area-btn span, .env-card span,
+.section-head, .eyebrow, .chip, .blue-badge, .quiz-topbar,
+.quiz-app, .answer-option, .nav-btn, .cta {
+  font-size: 0.85rem;
+}
+
+.info-panel p, .detail-panel li, .env-panel p, .future-panel p,
+.brief, .time-box small, .env-card small, .score-result,
+.quiz-feedback, .answer-option {
+  font-size: 1rem;
+}
+
+.mini-card strong, .area-btn strong, .env-card strong {
+  font-size: 1.05rem;
+}
+
 .nav-btn {
   min-width: 180px;
   padding: 14px 18px;
@@ -991,7 +1134,7 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 }
 
 .nav-btn.primary {
-  background: linear-gradient(135deg, rgba(64, 231, 176, 0.2), rgba(36, 184, 163, 0.1));
+  background: linear-gradient(135deg, rgba(100, 126, 232, 0.2), rgba(112, 76, 189, 0.1));
 }
 
 .modal {
@@ -1104,6 +1247,10 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
 }
 
 @media (max-width: 860px) {
+  .topic-visual {
+    height: 148px;
+  }
+
   .cover-grid, .future-layout, .final-layout, .env-panel, .feature-grid, .env-grid, .reflection-grid, .area-grid {
     grid-template-columns: 1fr;
   }
@@ -1126,7 +1273,77 @@ h1, h2, h3, strong, span, button, .mission-tag, .chip, .phase-btn, .progress-hea
   }
 
   .slides-wrap {
-    min-height: 820px;
+    min-height: max(640px, calc(100svh - 370px));
+  }
+
+  .control-hint {
+    flex-direction: column;
+  }
+
+  .cover-grid {
+    gap: 18px;
+  }
+
+  .molecule-scene {
+    min-height: 360px;
+  }
+
+  .molecule-shell {
+    width: min(280px, 65vw);
+    height: min(280px, 65vw);
+    min-width: 220px;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    width: calc(100% - 16px);
+    margin: 8px auto;
+    gap: 10px;
+  }
+
+  .sidebar {
+    padding: 12px 10px;
+  }
+
+  .phase-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panel {
+    padding: 14px 12px 12px;
+  }
+
+  .slide {
+    padding: 16px 8px 24px;
+  }
+
+  .slide h2 {
+    font-size: clamp(1.65rem, 8vw, 2.4rem);
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .nav-btn {
+    min-width: 0;
+    padding: 13px 10px;
+    font-size: 0.76rem;
+  }
+
+  .quiz-app {
+    padding: 16px 12px;
+  }
+
+  .quiz-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .final-layout {
+    min-height: 420px;
   }
 }
 

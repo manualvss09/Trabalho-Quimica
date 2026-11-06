@@ -8,7 +8,11 @@
       content="Apresentação interativa de Química Orgânica em formato de missão científica."
     />
     <title>MISSÃO: Química Orgânica</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css?v=20261013" />
+=======
+    <link rel="stylesheet" href="style.css?v=20261106" />
+>>>>>>> 5fa7841 (Slide finalizado)
   </head>
   <body>
     <div class="app-shell">
@@ -55,6 +59,11 @@
           <strong id="phaseNameDisplay">MISSÃO 00</strong>
         </div>
 
+        <div class="control-hint">
+          <span id="gamepadStatus" role="status" aria-live="polite">Controle não conectado</span>
+          <span>Teclado: ← / → · Enter inicia | Controle: LB / RB fases · direcional opções · A seleciona</span>
+        </div>
+
         <div class="slides-wrap">
           <section class="slide active" data-slide="0">
             <div class="cover-grid">
@@ -70,6 +79,7 @@
               </div>
 
               <div class="molecule-scene" aria-hidden="true">
+                <img class="molecule-photo" src="./assets/images/capa-laboratorio.jpg" alt="" />
                 <div class="molecule-shell">
                   <span class="node-main">C</span>
                   <span class="bond bond-1"></span>
@@ -98,6 +108,11 @@
             <h2>O CARBONO</h2>
             <p class="eyebrow">POR QUE O CARBONO É TÃO IMPORTANTE?</p>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/capa-laboratorio.jpg" alt="Tubos de ensaio organizados em uma bandeja de laboratório" loading="lazy" />
+              <figcaption>O carbono conecta estruturas, materiais e formas de vida.</figcaption>
+            </figure>
+
             <div class="carbon-map">
               <div class="carbon-core"><span>C</span><small>CARBONO</small></div>
               <div class="chain step-a"><span class="line"></span><strong>MOLÉCULAS</strong></div>
@@ -108,10 +123,10 @@
             </div>
 
             <div class="feature-grid">
-              <button class="mini-card active" type="button" data-panel="saude"> <span>SAÚDE</span> <strong>MEDICAMENTOS</strong> </button>
-              <button class="mini-card" type="button" data-panel="energia"> <span>ENERGIA</span> <strong>COMBUSTÍVEIS</strong> </button>
-              <button class="mini-card" type="button" data-panel="alimento"> <span>ALIMENTAÇÃO</span> <strong>COMPOSTOS ORGÂNICOS</strong> </button>
-              <button class="mini-card" type="button" data-panel="tecnologia"> <span>TECNOLOGIA</span> <strong>MATERIAIS</strong> </button>
+              <button class="mini-card active" type="button" data-panel="saude"><img class="card-image" src="./assets/images/quimica-saude.jpg" alt="Profissional de saúde usando um celular" loading="lazy" /> <span>SAÚDE</span> <strong>MEDICAMENTOS</strong> </button>
+              <button class="mini-card" type="button" data-panel="energia"><img class="card-image" src="./assets/images/energia.jpg" alt="Linhas de transmissão de energia ao pôr do sol" loading="lazy" /> <span>ENERGIA</span> <strong>COMBUSTÍVEIS</strong> </button>
+              <button class="mini-card" type="button" data-panel="alimento"><img class="card-image" src="./assets/images/alimentacao.jpg" alt="Prato com vegetais variados" loading="lazy" /> <span>ALIMENTAÇÃO</span> <strong>COMPOSTOS ORGÂNICOS</strong> </button>
+              <button class="mini-card" type="button" data-panel="tecnologia"><img class="card-image" src="./assets/images/quimica-tecnologia.jpg" alt="Circuito eletrônico" loading="lazy" /> <span>TECNOLOGIA</span> <strong>MATERIAIS</strong> </button>
             </div>
 
             <div class="info-panel active" data-group="saude">
@@ -139,6 +154,11 @@
             </div>
             <h2>DE ONDE VEIO A QUÍMICA ORGÂNICA?</h2>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/carbono-moleculas.jpg" alt="Béqueres e vidrarias usados em um laboratório de química" loading="lazy" />
+              <figcaption>A síntese de Wöhler, em 1828, ajudou a transformar a Química Orgânica.</figcaption>
+            </figure>
+
             <div class="timeline">
               <div class="time-box">
                 <span>VITALISMO</span>
@@ -147,13 +167,14 @@
               <div class="arrow">↓</div>
               <div class="time-box"><span>1828</span><small>Friedrich Wöhler</small></div>
               <div class="arrow">↓</div>
-              <div class="time-box highlight"><span>SÍNTESE DA UREIA</span><small>Produção em laboratório a partir de um composto considerado inorgânico.</small></div>
+              <div class="time-box highlight"><img class="card-image" src="./assets/images/carbono-moleculas.jpg" alt="Vidrarias utilizadas em um laboratório de química" loading="lazy" /><span>SÍNTESE DA UREIA</span><small>Produção em laboratório a partir de um composto considerado inorgânico.</small></div>
               <div class="arrow">↓</div>
               <div class="time-box"><span>MUDANÇA DE CONCEITO</span><small>A experiência enfraqueceu o vitalismo e impulsionou a Química Orgânica moderna.</small></div>
             </div>
             
             <div class="timeline-visual">
                 <div class="blue-badge">REGISTRO DESBLOQUEADO</div>
+                <img class="unlocked-photo" src="./assets/images/ureia-sintese.svg" alt="Esquema da síntese da ureia: cianato de amônio NH₄OCN transforma-se em ureia, NH₂–C(=O)–NH₂." loading="lazy" />
                 <div class="pair-boxes">
                   <div class="pair-box">
                     <strong>COMPOSTO INORGÂNICO</strong>
@@ -174,11 +195,16 @@
             <h2>QUÍMICA ORGÂNICA E QUALIDADE DE VIDA</h2>
             <p class="eyebrow center">SELECIONE UMA ÁREA</p>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/medicamentos.jpg" alt="Cartelas de medicamentos em comprimidos e cápsulas" loading="lazy" />
+              <figcaption>Medicamentos e compostos orgânicos contribuem com o cuidado em saúde.</figcaption>
+            </figure>
+
             <div class="area-grid">
-              <button class="area-btn active" type="button" data-panel="saude-area"> <span>01</span> <strong>SAÚDE</strong> </button>
-              <button class="area-btn" type="button" data-panel="alimentacao-area"> <span>02</span> <strong>ALIMENTAÇÃO</strong> </button>
-              <button class="area-btn" type="button" data-panel="agricultura-area"> <span>03</span> <strong>AGRICULTURA</strong> </button>
-              <button class="area-btn" type="button" data-panel="cotidiano-area"> <span>04</span> <strong>COTIDIANO</strong> </button>
+              <button class="area-btn active" type="button" data-panel="saude-area"><img class="card-image" src="./assets/images/medicamentos.jpg" alt="Cartelas de medicamentos" loading="lazy" /> <span>01</span> <strong>SAÚDE</strong> </button>
+              <button class="area-btn" type="button" data-panel="alimentacao-area"><img class="card-image" src="./assets/images/nutricao.jpg" alt="Refeição com vegetais, ovos e grãos" loading="lazy" /> <span>02</span> <strong>ALIMENTAÇÃO</strong> </button>
+              <button class="area-btn" type="button" data-panel="agricultura-area"><img class="card-image" src="./assets/images/cultivo.jpg" alt="Mudas crescendo em vasos com terra" loading="lazy" /> <span>03</span> <strong>AGRICULTURA</strong> </button>
+              <button class="area-btn" type="button" data-panel="cotidiano-area"><img class="card-image" src="./assets/images/cosmeticos.jpg" alt="Frasco de produto cosmético" loading="lazy" /> <span>04</span> <strong>COTIDIANO</strong> </button>
             </div>
 
             <div class="detail-panel active" data-group="saude-area">
@@ -220,12 +246,17 @@
             <h2>PROTEÇÃO AMBIENTAL</h2>
             <p class="eyebrow">COMO A QUÍMICA PODE AJUDAR A REDUZIR NOSSO IMPACTO?</p>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/quimica-ambiente.jpg" alt="Floresta vista entre árvores altas" loading="lazy" />
+              <figcaption>Soluções químicas também ajudam a proteger os ecossistemas.</figcaption>
+            </figure>
+
             <div class="env-grid">
-              <button class="env-card active" type="button" data-panel="biofuel"><span>PROBLEMA</span><strong>BIOCOMBUSTÍVEIS</strong><small>Alternativas com menor dependência de combustíveis fósseis.</small></button>
-              <button class="env-card" type="button" data-panel="bioplastic"><span>PROBLEMA</span><strong>BIOPLÁSTICOS</strong><small>Materiais produzidos a partir de fontes renováveis.</small></button>
-              <button class="env-card" type="button" data-panel="polymer"><span>PROBLEMA</span><strong>POLÍMEROS BIODEGRADÁVEIS</strong><small>Menor acúmulo de resíduos persistentes.</small></button>
-              <button class="env-card" type="button" data-panel="recycle"><span>PROBLEMA</span><strong>RECICLAGEM</strong><small>Reaproveitamento de materiais e redução do descarte.</small></button>
-              <button class="env-card" type="button" data-panel="green"><span>PROBLEMA</span><strong>QUÍMICA VERDE</strong><small>Processos mais seguros e com menor impacto ambiental.</small></button>
+              <button class="env-card active" type="button" data-panel="biofuel"><img class="card-image" src="./assets/images/agricultura.jpg" alt="Plantação usada como fonte renovável" loading="lazy" /><span>PROBLEMA</span><strong>BIOCOMBUSTÍVEIS</strong><small>Alternativas com menor dependência de combustíveis fósseis.</small></button>
+              <button class="env-card" type="button" data-panel="bioplastic"><img class="card-image" src="./assets/images/polimeros.jpg" alt="Embalagem feita de material polimérico" loading="lazy" /><span>PROBLEMA</span><strong>BIOPLÁSTICOS</strong><small>Materiais produzidos a partir de fontes renováveis.</small></button>
+              <button class="env-card" type="button" data-panel="polymer"><img class="card-image" src="./assets/images/reciclagem.jpg" alt="Lixeiras para separação de resíduos recicláveis" loading="lazy" /><span>PROBLEMA</span><strong>POLÍMEROS BIODEGRADÁVEIS</strong><small>Menor acúmulo de resíduos persistentes.</small></button>
+              <button class="env-card" type="button" data-panel="recycle"><img class="card-image" src="./assets/images/reciclagem.jpg" alt="Lixeiras coloridas para reciclagem" loading="lazy" /><span>PROBLEMA</span><strong>RECICLAGEM</strong><small>Reaproveitamento de materiais e redução do descarte.</small></button>
+              <button class="env-card" type="button" data-panel="green"><img class="card-image" src="./assets/images/carbono-moleculas.jpg" alt="Vidrarias em um laboratório de química" loading="lazy" /><span>PROBLEMA</span><strong>QUÍMICA VERDE</strong><small>Processos mais seguros e com menor impacto ambiental.</small></button>
             </div>
 
             <div class="env-panel active" data-group="biofuel">
@@ -259,12 +290,17 @@
             <div class="section-head"><span>05 / 08</span><small>FASE 05</small></div>
             <h2>O FUTURO É ORGÂNICO?</h2>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/quimica-tecnologia.jpg" alt="Circuito eletrônico com componentes e conexões" loading="lazy" />
+              <figcaption>Moléculas e materiais avançados impulsionam novas tecnologias.</figcaption>
+            </figure>
+
             <div class="future-layout">
               <div class="future-menu">
-                <button class="future-btn active" type="button" data-tech="medicina">NOVOS MEDICAMENTOS</button>
-                <button class="future-btn" type="button" data-tech="polimeros">POLÍMEROS DE ALTA TECNOLOGIA</button>
-                <button class="future-btn" type="button" data-tech="biomateriais">BIOMATERIAIS</button>
-                <button class="future-btn" type="button" data-tech="nano">NANOMATERIAIS</button>
+                <button class="future-btn active" type="button" data-tech="medicina"><img class="card-image" src="./assets/images/quimica-saude.jpg" alt="Profissional de saúde" loading="lazy" />NOVOS MEDICAMENTOS</button>
+                <button class="future-btn" type="button" data-tech="polimeros"><img class="card-image" src="./assets/images/polimeros.jpg" alt="Embalagem feita de material polimérico" loading="lazy" />POLÍMEROS DE ALTA TECNOLOGIA</button>
+                <button class="future-btn" type="button" data-tech="biomateriais"><img class="card-image" src="./assets/images/carbono-moleculas.jpg" alt="Vidrarias e amostras de laboratório" loading="lazy" />BIOMATERIAIS</button>
+                <button class="future-btn" type="button" data-tech="nano"><img class="card-image" src="./assets/images/quimica-tecnologia.jpg" alt="Circuito eletrônico em close" loading="lazy" />NANOMATERIAIS</button>
               </div>
 
               <div class="future-panel active" data-tech-panel="medicina">
@@ -298,10 +334,15 @@
             <div class="section-head"><span>06 / 08</span><small>FASE 06</small></div>
             <h2>MISSÃO: REFLETIR</h2>
 
+            <figure class="topic-visual">
+              <img src="./assets/images/quimica-sustentabilidade.jpg" alt="Montanhas e vale sob a luz da manhã" loading="lazy" />
+              <figcaption>Inovação e responsabilidade precisam caminhar juntas.</figcaption>
+            </figure>
+
             <div class="reflection-grid">
-              <div class="reflection-card"><span>QUALIDADE DE VIDA</span></div>
-              <div class="reflection-card"><span>DESENVOLVIMENTO</span></div>
-              <div class="reflection-card"><span>SUSTENTABILIDADE</span></div>
+              <div class="reflection-card"><img class="card-image" src="./assets/images/quimica-saude.jpg" alt="Profissional de saúde" loading="lazy" /><span>QUALIDADE DE VIDA</span></div>
+              <div class="reflection-card"><img class="card-image" src="./assets/images/quimica-tecnologia.jpg" alt="Circuito eletrônico" loading="lazy" /><span>DESENVOLVIMENTO</span></div>
+              <div class="reflection-card"><img class="card-image" src="./assets/images/quimica-ambiente.jpg" alt="Floresta" loading="lazy" /><span>SUSTENTABILIDADE</span></div>
             </div>
 
             <p class="quote">“Conhecer o carbono é entender uma parte fundamental das transformações que moldam nossa vida.”</p>
@@ -315,25 +356,25 @@
             <div class="section-head"><span>07 / 08</span><small>FASE 07</small></div>
             <h2>DESAFIO FINAL</h2>
             <p class="eyebrow">TESTE SEU CONHECIMENTO</p>
-            <div id="quizApp" class="quiz-app" aria-live="polite"></div>
+<figure class="topic-visual">
+    <img src="./assets/images/desafio-quimica.jpg" alt="Estudantes reunidos para resolver uma atividade" loading="lazy" />
+    <figcaption>Hora de colocar as ideias em prática.</figcaption>
+</figure>
+
+<div id="quizApp" class="quiz-app" aria-live="polite"></div>
           </section>
 
           <section class="slide" data-slide="8">
             <div class="section-head"><span>08 / 08</span><small>MISSÃO CONCLUÍDA</small></div>
             <div class="final-layout">
-              <div class="final-text">
-                <p>EU</p>
-                <p>TENTEI.</p>
-              </div>
               <div class="final-image-frame">
                 <img src="./assets/images/chico.jpg" alt="Chico Moedas em pose de meme" />
               </div>
             </div>
-            <div class="final-footer">FIM.</div>
           </section>
         </div>
 
-        <div class="controls">
+        <div class="controls hidden">
           <button id="prevBtn" class="nav-btn" type="button">← ANTERIOR</button>
           <button id="nextBtn" class="nav-btn primary" type="button">PRÓXIMO →</button>
         </div>
@@ -355,6 +396,10 @@
 
     <div id="toast" class="toast" aria-live="polite">MISSÃO INICIADA</div>
 
+<<<<<<< HEAD
     <script src="script.js?v=20261013"></script>
+=======
+    <script src="script.js?v=20261106"></script>
+>>>>>>> 5fa7841 (Slide finalizado)
   </body>
 </html>
