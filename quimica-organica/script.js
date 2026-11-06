@@ -13,7 +13,6 @@ const modal = document.getElementById('referenceModal');
 const referenceBtn = document.querySelector('[data-reference-modal]');
 const closeModalBtn = document.querySelector('.close-modal');
 const quizApp = document.getElementById('quizApp');
-const gamepadStatus = document.getElementById('gamepadStatus');
 const totalSlides = slides.length - 1;
 let currentSlide = 0;
 let toastTimer = null;
@@ -87,7 +86,6 @@ function updateProgress() {
   });
 
   prevBtn.disabled = currentSlide === 0;
-<<<<<<< HEAD
   if (currentSlide === 7) {
     nextBtn.textContent = quizState.complete ? 'CONCLUIR MISSÃO →' : 'QUIZ EM ANDAMENTO';
     nextBtn.disabled = !quizState.complete;
@@ -95,13 +93,9 @@ function updateProgress() {
     nextBtn.disabled = false;
     nextBtn.textContent = currentSlide === slides.length - 1 ? 'VOLTAR AO MENU' : 'PRÓXIMA FASE →';
   }
-=======
   prevBtn.style.opacity = currentSlide === 0 ? '0.45' : '1';
   prevBtn.style.cursor = currentSlide === 0 ? 'not-allowed' : 'pointer';
-
-  nextBtn.textContent = currentSlide === slides.length - 1 ? 'VOLTAR AO INÍCIO' : 'PRÓXIMO →';
   slideControls.classList.toggle('hidden', currentSlide === 0);
->>>>>>> 5fa7841 (Slide finalizado)
 }
 
 function getNavigableElements() {
@@ -275,7 +269,6 @@ document.querySelector('.cta').addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (event) => {
-<<<<<<< HEAD
   const activeTag = document.activeElement?.tagName || '';
   if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
 
@@ -286,25 +279,6 @@ document.addEventListener('keydown', (event) => {
       previousSlide();
     }
     return;
-=======
-  const target = event.target instanceof Element ? event.target : null;
-
-  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-    closeModal();
-    return;
-  }
-
-  if (event.repeat || !modal.classList.contains('hidden')) return;
-
-  const isTyping = target?.matches('input, textarea, select, [contenteditable="true"]') || target?.isContentEditable;
-  const isSlideControlFocused = document.activeElement?.closest('.slide.active button, .slide.active a');
-  const isInteractiveControlFocused = document.activeElement?.closest('button, a, input, textarea, select, [contenteditable="true"]');
-  if (isTyping || isSlideControlFocused) return;
-
-  if (event.key === 'ArrowRight') {
-    event.preventDefault();
-    nextSlide();
->>>>>>> 5fa7841 (Slide finalizado)
   }
 
   const directions = {
@@ -323,14 +297,8 @@ document.addEventListener('keydown', (event) => {
     return;
   }
 
-<<<<<<< HEAD
   if (event.key === 'Enter' && currentSlide === 0 && document.activeElement === document.body) {
     document.querySelector('.cta').click();
-=======
-  if (currentSlide === 0 && !isInteractiveControlFocused && (event.key === 'Enter' || event.key === ' ')) {
-    event.preventDefault();
-    setActiveSlide(1);
->>>>>>> 5fa7841 (Slide finalizado)
   }
 });
 
@@ -350,157 +318,6 @@ referenceBtn?.addEventListener('click', openModal);
 closeModalBtn?.addEventListener('click', closeModal);
 modal?.addEventListener('click', (event) => {
   if (event.target === modal) closeModal();
-});
-
-const previousGamepadButtons = new Map();
-const previousGamepadAxes = new Map();
-
-function updateGamepadStatus(message) {
-  if (gamepadStatus && gamepadStatus.textContent !== message) {
-    gamepadStatus.textContent = message;
-  }
-}
-
-function getGamepadTargets() {
-  const scope = modal.classList.contains('hidden') ? slides[currentSlide] : modal;
-  return [...scope.querySelectorAll('button:not(:disabled), a[href]')]
-    .filter((element) => element.getClientRects().length > 0);
-}
-
-function moveGamepadFocus(direction) {
-  const targets = getGamepadTargets();
-  if (targets.length === 0) return;
-
-  const current = targets.indexOf(document.activeElement);
-  if (current === -1) {
-    targets[direction === 'left' || direction === 'up' ? targets.length - 1 : 0].focus();
-    return;
-  }
-
-  const currentRect = targets[current].getBoundingClientRect();
-  const horizontal = direction === 'left' || direction === 'right';
-  const currentCenter = horizontal
-    ? (currentRect.left + currentRect.right) / 2
-    : (currentRect.top + currentRect.bottom) / 2;
-  const currentCross = horizontal
-    ? (currentRect.top + currentRect.bottom) / 2
-    : (currentRect.left + currentRect.right) / 2;
-  const sign = direction === 'right' || direction === 'down' ? 1 : -1;
-
-  const rankedTargets = targets
-    .map((element, index) => {
-      if (index === current) return null;
-      const rect = element.getBoundingClientRect();
-      const center = horizontal ? (rect.left + rect.right) / 2 : (rect.top + rect.bottom) / 2;
-      const cross = horizontal ? (rect.top + rect.bottom) / 2 : (rect.left + rect.right) / 2;
-      const distance = (center - currentCenter) * sign;
-      return distance > 1 ? { element, score: distance + Math.abs(cross - currentCross) * 1.5 } : null;
-    })
-    .filter(Boolean)
-    .sort((first, second) => first.score - second.score);
-
-  const nextTarget = rankedTargets[0]?.element || targets[
-    direction === 'left' || direction === 'up' ? targets.length - 1 : 0
-  ];
-  nextTarget.focus();
-}
-
-function activateGamepadTarget() {
-  if (currentSlide === 0 && modal.classList.contains('hidden')) {
-    setActiveSlide(1);
-    return;
-  }
-
-  const targets = getGamepadTargets();
-  if (targets.includes(document.activeElement)) {
-    document.activeElement.click();
-  } else {
-    targets[0]?.focus();
-  }
-}
-
-function pollGamepads() {
-  if (typeof navigator.getGamepads !== 'function') {
-    updateGamepadStatus('Gamepad API indisponível; use o teclado');
-    return;
-  }
-
-  const connectedGamepads = [...navigator.getGamepads()].filter((gamepad) => gamepad?.connected);
-  const connectedIndexes = new Set(connectedGamepads.map((gamepad) => gamepad.index));
-  const activeGamepad = connectedGamepads[0];
-  updateGamepadStatus(activeGamepad ? `Controle conectado: ${activeGamepad.id}` : 'Controle não conectado');
-
-  connectedGamepads.forEach((gamepad) => {
-    const pressedButtons = gamepad.buttons.map((button) => Boolean(button?.pressed));
-    const previousButtons = previousGamepadButtons.get(gamepad.index);
-    const pressedNow = (buttonIndex) => pressedButtons[buttonIndex] && !previousButtons?.[buttonIndex];
-
-    if (!previousButtons) {
-      previousGamepadButtons.set(gamepad.index, pressedButtons);
-      previousGamepadAxes.set(gamepad.index, {});
-      return;
-    }
-
-    let changedSlide = false;
-    if (modal.classList.contains('hidden') && pressedNow(4)) {
-      previousSlide();
-      changedSlide = true;
-    } else if (modal.classList.contains('hidden') && pressedNow(5)) {
-      nextSlide();
-      changedSlide = true;
-    }
-
-    const directions = [
-      [12, 'up'],
-      [13, 'down'],
-      [14, 'left'],
-      [15, 'right']
-    ];
-
-    if (!changedSlide) {
-      const dpadDirection = directions.find(([buttonIndex]) => pressedNow(buttonIndex));
-      if (dpadDirection) {
-        moveGamepadFocus(dpadDirection[1]);
-      } else {
-        const horizontalAxis = gamepad.axes[0] || 0;
-        const verticalAxis = gamepad.axes[1] || 0;
-        const axes = {
-          left: horizontalAxis < -0.6,
-          right: horizontalAxis > 0.6,
-          up: verticalAxis < -0.6,
-          down: verticalAxis > 0.6
-        };
-        const previousAxes = previousGamepadAxes.get(gamepad.index) || {};
-        const axisDirection = Object.keys(axes).find((direction) => axes[direction] && !previousAxes[direction]);
-        if (axisDirection) moveGamepadFocus(axisDirection);
-        previousGamepadAxes.set(gamepad.index, axes);
-      }
-
-      if (pressedNow(0)) activateGamepadTarget();
-    }
-
-    previousGamepadButtons.set(gamepad.index, pressedButtons);
-  });
-
-  previousGamepadButtons.forEach((_, index) => {
-    if (!connectedIndexes.has(index)) {
-      previousGamepadButtons.delete(index);
-      previousGamepadAxes.delete(index);
-    }
-  });
-
-  window.requestAnimationFrame(pollGamepads);
-}
-
-window.addEventListener('gamepadconnected', (event) => {
-  previousGamepadButtons.delete(event.gamepad.index);
-  updateGamepadStatus(`Controle conectado: ${event.gamepad.id}`);
-});
-
-window.addEventListener('gamepaddisconnected', (event) => {
-  previousGamepadButtons.delete(event.gamepad.index);
-  previousGamepadAxes.delete(event.gamepad.index);
-  updateGamepadStatus('Controle não conectado');
 });
 
 const miniCards = [...document.querySelectorAll('.mini-card')];
@@ -543,77 +360,10 @@ futureButtons.forEach((button) => {
   });
 });
 
-<<<<<<< HEAD
 function returnToMenu() {
   resetQuiz();
   setActiveSlide(0);
 }
-=======
-const quizQuestions = [
-  {
-    question: 'Uma amostra contém CO₂. Só a presença de carbono basta para classificá-la como orgânica?',
-    options: [
-      'Sim. Todo composto que contém carbono pertence à Química Orgânica.',
-      'Não. O CO₂ é um óxido de carbono geralmente tratado como inorgânico; a presença de carbono, sozinha, não basta.',
-      'Não. Apenas moléculas com mais de dois átomos de carbono podem ser orgânicas.',
-      'Sim, desde que o CO₂ esteja dissolvido em água.'
-    ],
-    answer: 1,
-    explanation: 'Embora o carbono seja central na Química Orgânica, alguns compostos que o contêm, como CO₂ e carbonatos, são classificados como inorgânicos.'
-  },
-  {
-    question: 'Cianato de amônio (NH₄OCN) e ureia (CO(NH₂)₂) têm a mesma fórmula molecular, mas estruturas diferentes. O que isso indica sobre a experiência de Wöhler?',
-    options: [
-      'Os dois nomes descrevem a mesma substância, pois fórmulas moleculares iguais implicam estruturas iguais.',
-      'São isômeros: a reorganização dos átomos formou ureia em laboratório e enfraqueceu o vitalismo, sem provar que todo composto orgânico tenha origem inorgânica.',
-      'A reação criou átomos de carbono e nitrogênio que não existiam no reagente.',
-      'A experiência mostrou que a ureia só pode ser produzida por células vivas.'
-    ],
-    answer: 1,
-    explanation: 'As fórmulas moleculares iguais e estruturas diferentes caracterizam isômeros. A síntese demonstrou que a ureia podia ser obtida sem um organismo vivo.'
-  },
-  {
-    question: 'Em uma análise, a hidrólise da amostra A libera glicose; a da B libera glicerol e ácidos graxos; e a da C libera aminoácidos. Qual identificação é coerente?',
-    options: [
-      'A é carboidrato, B é lipídio e C é proteína.',
-      'A é proteína, B é carboidrato e C é lipídio.',
-      'A é lipídio, B é proteína e C é carboidrato.',
-      'A, B e C são proteínas, pois todos liberam moléculas menores.'
-    ],
-    answer: 0,
-    explanation: 'O amido é formado por unidades de glicose; lipídios podem liberar glicerol e ácidos graxos; proteínas são formadas por aminoácidos.'
-  },
-  {
-    question: 'Um biocombustível emite menos CO₂ no escapamento que um combustível fóssil, mas sua lavoura pode substituir uma floresta. Qual avaliação é mais adequada?',
-    options: [
-      'Considerar apenas as emissões no escapamento, pois as etapas anteriores não fazem parte do impacto do combustível.',
-      'Considerar o ciclo de vida, incluindo mudança no uso da terra, cultivo, processamento e transporte, antes de comparar as emissões totais.',
-      'Classificar o biocombustível como neutro em carbono apenas por ser renovável.',
-      'Desconsiderar a floresta, pois a captura de carbono pelas plantas sempre compensa qualquer emissão.'
-    ],
-    answer: 1,
-    explanation: 'Menores emissões no escapamento não garantem menor impacto total. Mudanças no uso da terra e as demais etapas podem alterar o balanço ambiental.'
-  },
-  {
-    question: 'Uma molécula candidata reduz a multiplicação de um microrganismo em laboratório, mas também danifica células humanas na mesma concentração. Qual conclusão é mais defensável?',
-    options: [
-      'Ela já é um medicamento eficaz, pois apresentou atividade contra o microrganismo.',
-      'Ela não tem qualquer atividade biológica, pois também afeta células humanas.',
-      'Há atividade biológica, mas a baixa seletividade é um problema; segurança, dose e eficácia precisam ser investigadas.',
-      'A presença de carbono garante que o organismo humano irá metabolizá-la sem efeitos adversos.'
-    ],
-    answer: 2,
-    explanation: 'Um efeito em laboratório não basta para comprovar um tratamento. A diferença entre o efeito desejado e a toxicidade para células humanas é essencial para avaliar a seletividade.'
-  }
-];
-
-const quizApp = document.getElementById('quizApp');
-const quizState = {
-  currentIndex: 0,
-  score: 0,
-  answered: false
-};
->>>>>>> 5fa7841 (Slide finalizado)
 
 function renderQuizSummary() {
   quizState.complete = true;
@@ -826,13 +576,8 @@ window.addEventListener('gamepaddisconnected', (event) => {
 function initializeApp() {
   renderQuizQuestion();
   updateProgress();
-<<<<<<< HEAD
   setActiveSlide(0, false);
   if (navigator.getGamepads?.().some(Boolean)) startGamepadPolling();
-=======
-  setActiveSlide(0);
-  pollGamepads();
->>>>>>> 5fa7841 (Slide finalizado)
 }
 
 window.addEventListener('pagehide', () => {
