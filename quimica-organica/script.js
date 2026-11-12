@@ -17,40 +17,66 @@ const totalSlides = slides.length - 1;
 let currentSlide = 0;
 let toastTimer = null;
 let gamepadFrame = null;
+let gamepadPollTimer = null;
 let gamepadDirection = '';
 let nextDirectionRepeat = 0;
 const previousGamepadButtons = new Map();
 
 const quizQuestions = [
   {
-    question: 'Qual é o elemento central da Química Orgânica?',
-    options: ['Oxigênio', 'Carbono', 'Nitrogênio', 'Hidrogênio'],
-    answer: 1,
-    explanation: 'O carbono é a base dos compostos orgânicos.'
-  },
-  {
-    question: 'Qual experimento ajudou a enfraquecer o vitalismo?',
-    options: ['Síntese da ureia', 'Separação do ar', 'Fermentação do açúcar', 'Eletrólise do sal'],
+    question: 'Qual combinação de propriedades ajuda a explicar a enorme diversidade de compostos de carbono?',
+    options: [
+      'O carbono forma quatro ligações covalentes e pode estabelecer ligações estáveis com outros átomos de carbono.',
+      'O carbono só forma ligações iônicas e não se liga a outros átomos de carbono.',
+      'O carbono existe apenas em moléculas produzidas por seres vivos.',
+      'O carbono sempre forma moléculas com a mesma estrutura e as mesmas propriedades.'
+    ],
     answer: 0,
-    explanation: 'Wöhler sintetizou ureia em laboratório, mostrando que um composto orgânico podia ser produzido fora dos seres vivos.'
+    explanation: 'A tetravalência do carbono e sua capacidade de formar cadeias e estruturas variadas permitem grande diversidade molecular.'
   },
   {
-    question: 'Qual área está diretamente ligada aos carboidratos, lipídios e proteínas?',
-    options: ['Geologia', 'Alimentação', 'Astronomia', 'Eletricidade'],
+    question: 'O que a síntese da ureia por Wöhler, em 1828, permitiu concluir?',
+    options: [
+      'Que todo composto orgânico é produzido exclusivamente por seres vivos.',
+      'Que um composto orgânico podia ser obtido em laboratório a partir de uma substância inorgânica, enfraquecendo o vitalismo.',
+      'Que substâncias orgânicas e inorgânicas são idênticas em todas as propriedades.',
+      'Que a ureia é o único composto orgânico que pode ser sintetizado.'
+    ],
     answer: 1,
-    explanation: 'Esses compostos orgânicos são fundamentais para a nutrição e para a vida.'
+    explanation: 'A síntese mostrou que não era necessária uma força vital para produzir ureia, mas não tornou orgânicos e inorgânicos a mesma coisa.'
   },
   {
-    question: 'Qual é uma aplicação importante da Química Orgânica na proteção ambiental?',
-    options: ['Produção de bioplásticos e biocombustíveis', 'Criação de moedas digitais', 'Evacuação de rios', 'Construção de casas sem cimento'],
+    question: 'Dois polímeros têm a mesma origem renovável, mas apresentam propriedades diferentes. Qual explicação é mais adequada?',
+    options: [
+      'A origem renovável determina sozinha todas as propriedades do material.',
+      'As propriedades dependem também da estrutura molecular e da organização das cadeias do polímero.',
+      'Polímeros de origem renovável não podem ter aplicações tecnológicas.',
+      'Materiais com a mesma origem sempre têm a mesma estrutura molecular.'
+    ],
+    answer: 1,
+    explanation: 'A origem da matéria-prima não define sozinha o desempenho: a estrutura e a organização molecular influenciam as propriedades do polímero.'
+  },
+  {
+    question: 'Um plástico é produzido a partir de matéria-prima renovável, mas não se degrada facilmente no ambiente. Qual conclusão está correta?',
+    options: [
+      'A informação é contraditória: todo material renovável é biodegradável.',
+      'O material pode ser de fonte renovável sem ser biodegradável; são características diferentes.',
+      'O material não pode ser um polímero.',
+      'A biodegradabilidade depende apenas de o material ser reciclável.'
+    ],
+    answer: 1,
+    explanation: 'Fonte renovável descreve a origem da matéria-prima; biodegradabilidade descreve a capacidade de decomposição em determinadas condições.'
+  },
+  {
+    question: 'Qual alternativa diferencia corretamente reciclagem de Química Verde?',
+    options: [
+      'Reciclagem reaproveita materiais; Química Verde busca projetar processos e produtos que reduzam resíduos e impactos desde sua origem.',
+      'Reciclagem elimina a necessidade de reduzir resíduos na produção; Química Verde trata apenas da separação do lixo.',
+      'As duas expressões significam exclusivamente usar matérias-primas renováveis.',
+      'Química Verde só se aplica ao tratamento de resíduos depois que eles são gerados.'
+    ],
     answer: 0,
-    explanation: 'A Química Orgânica pode criar alternativas mais sustentáveis e reduzir impactos ambientais.'
-  },
-  {
-    question: 'Qual função dos compostos orgânicos na área da saúde?',
-    options: ['Apenas decorar fórmulas', 'Produzir medicamentos e anestésicos', 'Substituir todos os alimentos', 'Aumentar a pressão atmosférica'],
-    answer: 1,
-    explanation: 'Muitos remédios e anestésicos são compostos orgânicos usados no cuidado à saúde.'
+    explanation: 'A reciclagem reaproveita materiais descartados, enquanto a Química Verde também procura prevenir resíduos e reduzir riscos ao longo dos processos.'
   }
 ];
 
@@ -496,12 +522,14 @@ function pollGamepads() {
     updateGamepadStatus(false);
     previousGamepadButtons.clear();
     gamepadDirection = '';
+    gamepadPollTimer = window.setTimeout(startGamepadPolling, 250);
     return;
   }
 
   updateGamepadStatus(true);
   const pad = pads[0];
-  const pressed = (index) => Boolean(pad.buttons[index]?.pressed);
+  const isPressed = (button) => Boolean(button && (button.pressed || button.value > 0.5));
+  const pressed = (index) => isPressed(pad.buttons[index]);
   const previousButtons = previousGamepadButtons.get(pad.index) || [];
   const buttonPressed = (index) => pressed(index) && !previousButtons[index];
   const directions = [
@@ -552,12 +580,17 @@ function pollGamepads() {
   if (buttonPressed(4) && currentSlide !== 7) previousSlide();
   if (buttonPressed(5) && currentSlide !== 7) nextSlide();
 
-  previousGamepadButtons.set(pad.index, pad.buttons.map((button) => button.pressed));
+  previousGamepadButtons.set(pad.index, pad.buttons.map(isPressed));
   gamepadFrame = requestAnimationFrame(pollGamepads);
 }
 
 function startGamepadPolling() {
-  if (gamepadFrame === null && navigator.getGamepads) {
+  if (!navigator.getGamepads) return;
+  if (gamepadPollTimer !== null) {
+    clearTimeout(gamepadPollTimer);
+    gamepadPollTimer = null;
+  }
+  if (gamepadFrame === null) {
     gamepadFrame = requestAnimationFrame(pollGamepads);
   }
 }
@@ -570,6 +603,7 @@ window.addEventListener('gamepaddisconnected', (event) => {
     gamepadFrame = null;
     gamepadDirection = '';
     updateGamepadStatus(false);
+    startGamepadPolling();
   }
 });
 
@@ -577,11 +611,12 @@ function initializeApp() {
   renderQuizQuestion();
   updateProgress();
   setActiveSlide(0, false);
-  if (navigator.getGamepads?.().some(Boolean)) startGamepadPolling();
+  startGamepadPolling();
 }
 
 window.addEventListener('pagehide', () => {
   if (gamepadFrame !== null) cancelAnimationFrame(gamepadFrame);
+  if (gamepadPollTimer !== null) clearTimeout(gamepadPollTimer);
   clearTimeout(toastTimer);
 });
 
